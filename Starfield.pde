@@ -2,7 +2,8 @@ Particle[] ye;
 void setup()
 {
 	size(500,500);
-	ye = new Particle[1000];
+	background(0);
+	ye = new Particle[100];
 	for (int i = 0; i < ye.length; i++){
 		ye[i] = new Particle();
 	}
@@ -10,13 +11,11 @@ void setup()
 }
 void draw()
 {
-	background(255);
+
 	for (int i = 0; i < ye.length; i++){
 		ye[i].show();
 		ye[i].move();
 	}
-}
-void mousePressed(){
 	redraw();
 }
 class Particle
@@ -35,10 +34,12 @@ class Particle
 	{
 		myX = (Math.cos(myAngle)*mySpeed) + myX;
 		myY = (Math.sin(myAngle)*mySpeed) + myY;
+
 	}
 	void show()
 	{
 		fill(col);
+		noStroke();
 		ellipse((float)myX, (float)myY, 10, 10);
 	}
 }
